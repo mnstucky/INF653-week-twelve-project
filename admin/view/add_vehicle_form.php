@@ -50,7 +50,6 @@
             <input type="hidden" name="action" value="add_vehicle">
             <button class="btn btn-primary m-1">Add Item</button>
         </form>
-        <a href="../admin/index.php?action=list_vehicles">View Full Vehicle List</a>
     </section>
 </main>
 

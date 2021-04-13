@@ -1,4 +1,5 @@
 <?php
+
 require('../model/db_connect.php');
 require('../model/vehicle_db.php');
 require('../model/make_db.php');
@@ -8,9 +9,9 @@ require('../model/admin_db.php');
 
 session_start();
 
-$makes = get_makes();
-$types = get_types();
-$classes = get_classes();
+$makes = MakeDB::get_makes();
+$types = TypeDB::get_types();
+$classes = ClassDB::get_classes();
 
 $action = filter_input(INPUT_POST, 'action');
 if ($action == NULL) {

@@ -3,7 +3,7 @@
 
 switch ($action) {
     case 'login':
-        if (is_valid_admin_login($username, $password)) {
+        if (AdminDB::is_valid_admin_login($username, $password)) {
             $_SESSION['is_valid_admin'] = true;
             header('Location: .?action=list_vehicles');
         } else {
@@ -28,9 +28,9 @@ switch ($action) {
         break;
     case 'register':
         include('./util/valid_register.php');
-        $errors = valid_registration($username, $password, $confirm_password);
+        $errors = ValidRegister::valid_registration($username, $password, $confirm_password);
         if (empty($errors)) {
-            add_admin($username, $password);
+            AdminDB::add_admin($username, $password);
             $_SESSION['is_valid_admin'] = true;
             header('Location: .?action=list_vehicles');
         } else {

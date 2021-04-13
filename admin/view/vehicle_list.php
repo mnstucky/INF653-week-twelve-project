@@ -69,10 +69,10 @@
                     $classId = $vehicle['class_id']; ?>
                     <tr>
                         <td><?php echo $vehicle['year'] ?></td>
-                        <td><?php echo get_make_by_id($makeId) ?></td>
+                        <td><?php echo MakeDB::get_make_by_id($makeId) ?></td>
                         <td><?php echo $vehicle['model'] ?></td>
-                        <td><?php echo get_type_by_id($typeId) ?></td>
-                        <td><?php echo get_class_by_id($classId) ?></td>
+                        <td><?php echo TypeDB::get_type_by_id($typeId) ?></td>
+                        <td><?php echo ClassDB::get_class_by_id($classId) ?></td>
                         <td><?php echo '$' . number_format($vehicle['price'], 2) ?></td>
                         <td>
                             <form action="index.php" method="POST">

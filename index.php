@@ -5,9 +5,9 @@ require('./model/make_db.php');
 require('./model/type_db.php');
 require('./model/class_db.php');
 
-$makes = get_makes();
-$types = get_types();
-$classes = get_classes();
+$makes = MakeDB::get_makes();
+$types = TypeDB::get_types();
+$classes = ClassDB::get_classes();
 
 if (!isset($sortMethod)) {
     $sortMethod = filter_input(INPUT_GET, 'sortMethod');
@@ -37,14 +37,14 @@ if (!isset($classId)) {
 if ($makeId == NULL || $makeId == FALSE) {
     if ($typeId == NULL || $typeId == FALSE) {
         if ($classId == NULL || $classId == FALSE) {
-            $vehicles = get_all_vehicles($sortMethod);
+            $vehicles = VehicleDB::get_all_vehicles($sortMethod);
         } else {
-            $vehicles = get_vehicles_by_class($classId, $sortMethod);
+            $vehicles = VehicleDB::get_vehicles_by_class($classId, $sortMethod);
         }
     } else {
-        $vehicles = get_vehicles_by_type($typeId, $sortMethod);
+        $vehicles = VehicleDB::get_vehicles_by_type($typeId, $sortMethod);
     }
 } else {
-    $vehicles = get_vehicles_by_make($makeId, $sortMethod);
+    $vehicles = VehicleDB::get_vehicles_by_make($makeId, $sortMethod);
 }
 include('./view/vehicle_list.php');
